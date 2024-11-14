@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyectos Destacados</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMa1f7QHnzAN0zDeG9cZ0b6pE1bbAXhuwxV59R+" crossorigin="anonymous">
+    <style>
+        @media (max-width: 768px) {
+            .skills-title {
+                font-size: 20px;
+            }
+
+            .progress-circle {
+                width: 60px;
+                height: 60px;
+            }
+
+            .nav-tabs .nav-link{
+                font-size: 12px;
+                padding: 14px;
+            }
+
+            .nav-tabs{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        .progress-circle {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .progress-circle .circle {
+            stroke: #4caf50;
+            fill: none;
+            stroke-width: 8;
+            transition: stroke-dasharray 0.5s ease;
+        }
+
+        .progress-circle .circle-bg {
+            stroke: #ffffff;
+        }
+
+        .progress-value {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .skill-icon {
+            font-size: 30px;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s;
+        }
+
+        .section-title {
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .experience-card {
+            background-color: #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+        .experience-card:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+
+<body style="background-color: #f8f9fa;">
+    <!-- Menú de Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Mi Portafolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="academico.html">Académico</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hobbies.html">Hobbies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="profesional.html">Profesional</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container text-center mt-5">
+        <br>        
+        <h1 class="text-center mb-4">Datos Profesionales</h1>
+        <br>
+
+        <div class="p-4 mb-4 bg-light rounded shadow-sm">
+            <img src="media/primary-img.png" alt="Proyecto destacado" class="img-fluid rounded mb-3" height="700px" width="600px">
+            <h3 class="mb-3">Mejor Proyecto Desenvolupado</h3>
+            <p class="mb-4">Descripción breve del mejor proyecto desarrollado, destacando sus características y logros principales.</p>
+            <a href="ruta/a/tu/proyecto.html" class="btn btn-primary btn-lg">Ver Proyecto</a>
+        </div>
+
+        <h2 class="mt-4">Habilidades</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4 skill-item">
+                <div class="progress-circle">
+                    <svg width="100%" height="100%">
+                        <circle class="circle-bg" cx="35" cy="35" r="30"></circle>
+                        <circle class="circle" cx="35" cy="35" r="30" data-percent="80"></circle>
+                    </svg>
+                    <div class="progress-value">80%</div>
+                </div>
+                <i class="fab fa-java skill-icon"></i>
+                <h5>Java</h5>
+            </div>
+            <div class="col-md-4 mb-4 skill-item">
+                <div class="progress-circle">
+                    <svg width="100%" height="100%">
+                        <circle class="circle-bg" cx="35" cy="35" r="30"></circle>
+                        <circle class="circle" cx="35" cy="35" r="30" data-percent="60"></circle>
+                    </svg>
+                    <div class="progress-value">60%</div>
+                </div>
+                <i class="fab fa-php skill-icon"></i>
+                <h5>PHP</h5>
+            </div>
+            <div class="col-md-4 mb-4 skill-item">
+                <div class="progress-circle">
+                    <svg width="100%" height="100%">
+                        <circle class="circle-bg" cx="35" cy="35" r="30"></circle>
+                        <circle class="circle" cx="35" cy="35" r="30" data-percent="30"></circle>
+                    </svg>
+                    <div class="progress-value">30%</div>
+                </div>
+                <i class="fab fa-js skill-icon"></i>
+                <h5>JavaScript</h5>
+            </div>
+        </div>
+
+        <h2 class="mt-4">Proyectos Destacados</h2>
+        <div id="carouselProyectos" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active position-relative">
+                    <img src="media/secondary-img1.png" class="d-block w-100" alt="Proyecto 1" height="300px" width="200px">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Proyecto 1</h5>
+                        <p>Descripción breve del Proyecto 1.</p>
+                    </div>
+                    <a href="#" class="btn btn-success position-absolute bottom-0 start-50 translate-middle-x mb-3" target="_blank">Ver Proyecto</a>
+                </div>
+                <div class="carousel-item position-relative">
+                    <img src="media/secondary-img2.png" class="d-block w-100" alt="Proyecto 2" height="300px" width="200px">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Proyecto 2</h5>
+                        <p>Descripción breve del Proyecto 2.</p>
+                    </div>
+                    <a href="#" class="btn btn-success position-absolute bottom-0 start-50 translate-middle-x mb-3" target="_blank">Ver Proyecto</a>
+                </div>
+                <div class="carousel-item position-relative">
+                    <img src="media/secondary-img3.png" class="d-block w-100" alt="Proyecto 3" height="300px" width="200px">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Proyecto 3</h5>
+                        <p>Descripción breve del Proyecto 3.</p>
+                    </div>
+                    <a href="ruta/a/tu/proyecto3.html" class="btn btn-success position-absolute bottom-0 start-50 translate-middle-x mb-3" target="_blank">Ver Proyecto</a>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselProyectos" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselProyectos" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
+
+    <div class="container mt-5">
+        <h2 class="section-title">Experiencia Laboral</h2>
+        <ul class="nav nav-tabs" id="experienceTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="exp1-tab" data-bs-toggle="tab" data-bs-target="#exp1" type="button" role="tab" aria-controls="exp1" aria-selected="true">Desarrollador Web</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="exp2-tab" data-bs-toggle="tab" data-bs-target="#exp2" type="button" role="tab" aria-controls="exp2" aria-selected="false">Ingeniero de Software</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="exp3-tab" data-bs-toggle="tab" data-bs-target="#exp3" type="button" role="tab" aria-controls="exp3" aria-selected="false">Analista de Sistemas</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="experienceTabContent">
+            <div class="tab-pane fade show active" id="exp1" role="tabpanel" aria-labelledby="exp1-tab">
+                <div class="p-3">
+                    <img src="media/desarrollador-web.jpg" alt="Logo Empresa 1" class="rounded-circle mb-3" height="100px" width="100px">
+                    <h5 class="card-title">Desarrollador Web</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Empresa 1</h6>
+                    <p><strong>Fechas:</strong> Ene 2020 - Dic 2021</p>
+                    <p><strong>Ubicación:</strong> Sevilla, España</p>
+                    <p>Desarrollo y mantenimiento de aplicaciones web. Logros: Incremento del 20% en la eficiencia del sistema.</p>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="exp2" role="tabpanel" aria-labelledby="exp2-tab">
+                <div class="p-3">
+                    <img src="media/ingeniero-software.jpg" alt="Logo Empresa 2" class="rounded-circle mb-3" height="100px" width="100px">
+                    <h5 class="card-title">Ingeniero de Software</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Empresa 2</h6>
+                    <p><strong>Fechas:</strong> Ene 2018 - Dic 2019</p>
+                    <p><strong>Ubicación:</strong> Roma, Italia</p>
+                    <p>Diseño de soluciones de software y gestión de proyectos. Logros: Aumento del 30% en la satisfacción del cliente.</p>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="exp3" role="tabpanel" aria-labelledby="exp3-tab">
+                <div class="p-3">
+                    <img src="media/ingeniero-sistemas.jpg" alt="Logo Empresa 3" class="rounded-circle mb-3" height="100px" width="100px">
+                    <h5 class="card-title">Analista de Sistemas</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Empresa 3</h6>
+                    <p><strong>Fechas:</strong> Ene 2016 - Dic 2017</p>
+                    <p><strong>Ubicación:</strong> Mallorca, España</p>
+                    <p>Análisis de requerimientos y pruebas de software. Logros: 95% de efectividad en pruebas de calidad de software.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://kit.fontawesome.com/17e330ead4.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Actualiza los círculos de progreso según el porcentaje especificado
+        document.querySelectorAll('.circle').forEach(circle => {
+            const radius = circle.r.baseVal.value;
+            const circumference = 2 * Math.PI * radius;
+            circle.style.strokeDasharray = `${circumference} ${circumference}`;
+            const percent = circle.getAttribute('data-percent');
+            const offset = circumference - (percent / 100) * circumference;
+            circle.style.strokeDashoffset = offset;
+        });
+    </script>
+</body>
+
+</html>

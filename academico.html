@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Datos Académicos</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      @media (max-width: 768px) {
+        .section {
+          flex-direction: column;
+          align-items: center;
+        }
+        .chart {
+          margin: 20px auto;
+        }
+      }
+
+      /* Gráfico de Barras */
+      .bar-chart {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .bar {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+      .bar-label {
+        width: 100px;
+        text-align: right;
+        margin-right: 15px;
+        font-weight: bold;
+      }
+      .bar-fill {
+        height: 25px;
+        border-radius: 5px;
+        background-color: #4caf50;
+      }
+      .bar-fill.javascript {
+        width: 60%;
+        background-color: #4caf50;
+      }
+      .bar-fill.python {
+        width: 50%;
+        background-color: #2196f3;
+      }
+      .bar-fill.html {
+        width: 40%;
+        background-color: #ff9800;
+      }
+      .bar-fill.css {
+        width: 30%;
+        background-color: #9c27b0;
+      }
+
+      hr {
+        border-color: white;
+      }
+    </style>
+  </head>
+  <body style="background-color: #f8f9fa;">
+    <!-- Menú de Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Mi Portafolio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="academico.html">Académico</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="hobbies.html">Hobbies</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="profesional.html">Profesional</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contacto.html">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container text-center mt-5">
+      <br>
+      <h1 class="text-center mb-4">Datos Académicos</h1>
+      <br>
+
+      <div class="row mb-4">
+        <!-- Primer Título Académico -->
+        <div class="col-md-6">
+          <div class="card p-3 shadow-sm">
+            <div class="d-flex align-items-center">
+              <img
+                src="https://estaticos-cdn.prensaiberica.es/clip/1703f62a-c69d-40ec-8d80-5d351d67e48b_16-9-aspect-ratio_default_0.jpg"
+                alt="Secundaria"
+                class="rounded-circle me-3"
+                width="150px"
+                height="150px"
+              />
+              <div class="text-start">
+                <h2 class="h5 card-title">Título: Secundaria</h2>
+                <p class="card-text">
+                  Institución: Instituto Sureda i Blanes
+                </p>
+                <p class="card-text">Fechas: 2017 - 2021</p>
+                <p class="card-text">
+                  Detalles: Mención honorífica en lengua y literatura, proyectos de
+                  investigación.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+
+        <!-- Segundo Título Académico -->
+        <div class="col-md-6">
+          <div class="card p-3 shadow-sm">
+            <div class="d-flex align-items-center">
+              <img
+                src="https://www.mallorcadiario.com/fotos/1/uploads/2014/05/IES-Francesc-de-Borja-Moll.jpg"
+                alt="Grado Medio"
+                class="rounded-circle me-3"
+                width="150px"
+                height="150px"
+              />
+              <div class="text-start">
+                <h2 class="h5 card-title">Título: Grado Medio (Sistemas Microinformáticos y Redes)</h2>
+                <p class="card-text">
+                  Institución: Centro Integrado de Formación Profesional Borja Moll
+                </p>
+                <p class="card-text">Fechas: 2021 - 2023</p>
+                <p class="card-text">
+                  Detalles: Proyecto final en desarrollo web, participación en
+                  competencias de programación.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sección de Formación Obtenida -->
+      <div class="container text-center mt-5">
+        <h1 class="section-title">Formación en Habilidades</h1>
+        <div class="section-divider"></div>
+
+        <!-- Gráfico de Barras -->
+        <div class="bar-chart">
+          <!-- JavaScript -->
+          <div class="bar">
+            <div class="bar-label">JavaScript</div>
+            <div class="bar-fill javascript"></div>
+            <div class="ms-3">80%</div>
+          </div>
+          <!-- Python -->
+          <div class="bar">
+            <div class="bar-label">Python</div>
+            <div class="bar-fill python"></div>
+            <div class="ms-3">60%</div>
+          </div>
+          <!-- HTML -->
+          <div class="bar">
+            <div class="bar-label">HTML</div>
+            <div class="bar-fill html"></div>
+            <div class="ms-3">40%</div>
+          </div>
+          <!-- CSS -->
+          <div class="bar">
+            <div class="bar-label">CSS</div>
+            <div class="bar-fill css"></div>
+            <div class="ms-3">30%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
