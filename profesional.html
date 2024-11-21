@@ -67,19 +67,63 @@
             transition: transform 0.3s;
         }
 
-        .section-title {
-            margin-top: 40px;
-            margin-bottom: 20px;
+        .overlay {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .overlay-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            transform: scale(0);
+            transition: transform 0.3s ease-in-out;
+            position: relative;
+        }
+
+        .overlay.show {
+            display: flex;
+        }
+
+        .overlay.show .overlay-content {
+            transform: scale(1);
+        }
+
+        .close {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
             font-weight: bold;
         }
-        .experience-card {
-            background-color: #e9ecef;
-            border-radius: 8px;
-            padding: 20px;
-            transition: transform 0.3s;
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
         }
-        .experience-card:hover {
-            transform: scale(1.02);
+
+        img.rounded {
+            border-radius: 10px;
+            margin-top: 40px; /* Mueve la imagen hacia abajo */
+        }
+
+        #projectLinks a {
+            margin: 0 10px; /* Añade margen entre los iconos */
         }
     </style>
 </head>
@@ -102,7 +146,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="hobbies.html">Hobbies</a>
-                    </li>
+                    </li ```html
                     <li class="nav-item">
                         <a class="nav-link" href="profesional.html">Profesional</a>
                     </li>
@@ -116,17 +160,16 @@
 
     <div class="container text-center mt-5">
         <br>        
-        <h1 class="text-center mb-4">Datos Profesionales</h1>
+        <h1 class="text-center mb-4" style="font-size: 1.5em;">DATOS PROFESIONALES</h1>
         <br>
 
         <div class="p-4 mb-4 bg-light rounded shadow-sm">
-            <img src="media/primary-img.png" alt="Proyecto destacado" class="img-fluid rounded mb-3" height="700px" width="600px">
-            <h3 class="mb-3">Mejor Proyecto Desenvolupado</h3>
+            <img src="media/primary-img.png" alt="Proyecto Destacado" class="img-fluid rounded mb-3" height="700px" width="600px">
+            <h3 class="mb-3" style="font-size: 1.2em;">MEJOR PROYECTO DESARROLLADO</h3>
             <p class="mb-4">Descripción breve del mejor proyecto desarrollado, destacando sus características y logros principales.</p>
-            <a href="ruta/a/tu/proyecto.html" class="btn btn-primary btn-lg">Ver Proyecto</a>
         </div>
 
-        <h2 class="mt-4">Habilidades</h2>
+        <h2 class="mt-4" style="font-size: 1.3em;">LENGUAJES DESARROLLADOS</h2>
         <div class="row">
             <div class="col-md-4 mb-4 skill-item">
                 <div class="progress-circle">
@@ -137,7 +180,7 @@
                     <div class="progress-value">80%</div>
                 </div>
                 <i class="fab fa-java skill-icon"></i>
-                <h5>Java</h5>
+                <h5 style="font-size: 1em;">JAVA</h5>
             </div>
             <div class="col-md-4 mb-4 skill-item">
                 <div class="progress-circle">
@@ -148,7 +191,7 @@
                     <div class="progress-value">60%</div>
                 </div>
                 <i class="fab fa-php skill-icon"></i>
-                <h5>PHP</h5>
+                <h5 style="font-size: 1em;">PHP</h5>
             </div>
             <div class="col-md-4 mb-4 skill-item">
                 <div class="progress-circle">
@@ -163,34 +206,83 @@
             </div>
         </div>
 
-        <h2 class="mt-4">Proyectos Destacados</h2>
+        <h2 class="mt-4">Proyectos destacados</h2>
         <div id="carouselProyectos" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
+                <!-- Proyecto 1 -->
                 <div class="carousel-item active position-relative">
-                    <img src="media/secondary-img1.png" class="d-block w-100" alt="Proyecto 1" height="300px" width="200px">
+                    <img src="media/secondary-img1.png" class="d-block w-100" alt="Proyecto estilo Spotify" height="300px" width="200px">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Proyecto 1</h5>
-                        <p>Descripción breve del Proyecto 1.</p>
+                        <h5>Plataforma de Streaming de Música</h5>
+                        <p>Un sistema avanzado de streaming de música con recomendaciones personalizadas.</p>
                     </div>
-                    <a href="#" class="btn btn-success position-absolute bottom-0 start-50 translate-middle-x mb-3" target="_blank">Ver Proyecto</a>
+                    <a class="btn btn-success position-absolute bottom-0 start-50 translate-middle-x mb-3"
+                        onclick="openModal(
+                            'Plataforma de Streaming de Música',
+                            'media/secondary-img1.png',
+                            'Desarrollamos una plataforma de streaming con un diseño inspirado en Spotify, con funcionalidades de creación de listas de reproducción, búsqueda por género o artista, y un sistema de recomendación potenciado por Machine Learning.',
+                            [
+                                {icon: 'fab fa-python', text: 'Python para el back-end con Flask'},
+                                {icon: 'fab fa-js', text: 'JavaScript y React para el front-end'}
+                            ],
+                            [
+                                {icon: 'fab fa-github', link: 'https://github.com/proyecto1'},
+                                {icon: 'fab fa-google-drive', link: 'https://drive.google.com/proyecto1'},
+                                {icon: 'fab fa-stack-overflow', link: 'https://stackoverflow.com/proyecto1'}
+                            ]
+                        )">VER PROYECTO</a>
                 </div>
+        
+                <!-- Proyecto 2 -->
                 <div class="carousel-item position-relative">
-                    <img src="media/secondary-img2.png" class="d-block w-100" alt="Proyecto 2" height="300px" width="200px">
+                    <img src="media/secondary-img2.png" class="d-block w-100" alt="Proyecto estilo Netflix" height="300px" width="200px">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Proyecto 2</h5>
-                        <p>Descripción breve del Proyecto 2.</p>
+                        <h5>Plataforma de Video Bajo Demanda</h5>
+                        <p>Una experiencia inmersiva de visualización con contenido adaptado al usuario.</p>
                     </div>
-                    <a href="#" class="btn btn-success position-absolute bottom-0 start-50 translate-middle-x mb-3" target="_blank">Ver Proyecto</a>
+                    <a class="btn btn-success position-absolute bottom-0 start-50 translate-middle-x mb-3"
+                        onclick="openModal(
+                            'Plataforma de Video Bajo Demanda',
+                            'media/secondary-img2.png',
+                            'Inspirada en Netflix, esta web incluye un sistema de gestión de usuarios, reproducción adaptativa y recomendaciones personalizadas. Integra un reproductor avanzado con soporte para subtítulos y múltiples idiomas.',
+                            [
+                                {icon: 'fab fa-php', text: 'PHP para el back-end con Laravel'},
+                                {icon: 'fab fa-angular', text: 'Angular para el front-end interactivo'}
+                            ],
+                            [
+                                {icon: 'fab fa-github', link: 'https://github.com/proyecto2'},
+                                {icon: 'fab fa-google-drive', link: 'https://drive.google.com/proyecto2'},
+                                {icon: 'fab fa-stack-overflow', link: 'https://stackoverflow.com/proyecto2'}
+                            ]
+                        )">VER PROYECTO</a>
                 </div>
+        
+                <!-- Proyecto 3 -->
                 <div class="carousel-item position-relative">
-                    <img src="media/secondary-img3.png" class="d-block w-100" alt="Proyecto 3" height="300px" width="200px">
+                    <img src="media/secondary-img3.png" class="d-block w-100" alt="Proyecto Guía Turística" height="300px" width="200px">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Proyecto 3</h5>
-                        <p>Descripción breve del Proyecto 3.</p>
+                        <h5>Guía Turística Interactiva</h5>
+                        <p>Un portal para turistas con mapas interactivos y reseñas en tiempo real.</p>
                     </div>
-                    <a href="ruta/a/tu/proyecto3.html" class="btn btn-success position-absolute bottom-0 start-50 translate-middle-x mb-3" target="_blank">Ver Proyecto</a>
+                    <a class="btn btn-success position-absolute bottom-0 start-50 translate-middle-x mb-3"
+                        onclick="openModal(
+                            'Guía Turística Interactiva',
+                            'media/secondary-img3.png',
+                            'El proyecto incluye una guía turística con mapas interactivos, recomendaciones personalizadas según la ubicación del usuario, y una funcionalidad de reseñas para hoteles y restaurantes. Ideal para viajeros modernos.',
+                            [
+                                {icon: 'fab fa-node', text: 'Node.js y MongoDB para el back-end'},
+                                {icon: 'fab fa-python', text: 'Python con Django para los mapas interactivos'},
+                                {icon: 'fab fa-js', text: 'JavaScript con Vue.js para el front-end'}
+                            ],
+                            [
+                                {icon: 'fab fa-github', link: 'https://github.com/proyecto3'},
+                                {icon: 'fab fa-google-drive', link: 'https://drive.google.com/proyecto3'},
+                                {icon: 'fab fa-stack-overflow', link: 'https://stackoverflow.com/proyecto3'}
+                            ]
+                        )">VER PROYECTO</a>
                 </div>
             </div>
+        
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselProyectos" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Anterior</span>
@@ -200,67 +292,111 @@
                 <span class="visually-hidden">Siguiente</span>
             </button>
         </div>
+        
 
-    <div class="container mt-5">
-        <h2 class="section-title">Experiencia Laboral</h2>
-        <ul class="nav nav-tabs" id="experienceTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="exp1-tab" data-bs-toggle="tab" data-bs-target="#exp1" type="button" role="tab" aria-controls="exp1" aria-selected="true">Desarrollador Web</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="exp2-tab" data-bs-toggle="tab" data-bs-target="#exp2" type="button" role="tab" aria-controls="exp2" aria-selected="false">Ingeniero de Software</button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link" id="exp3-tab" data-bs-toggle="tab" data-bs-target="#exp3" type="button" role="tab" aria-controls="exp3" aria-selected="false">Analista de Sistemas</button>
-            </li>
-        </ul>
-        <div class="tab-content" id="experienceTabContent">
-            <div class="tab-pane fade show active" id="exp1" role="tabpanel" aria-labelledby="exp1-tab">
-                <div class="p-3">
-                    <img src="media/desarrollador-web.jpg" alt="Logo Empresa 1" class="rounded-circle mb-3" height="100px" width="100px">
-                    <h5 class="card-title">Desarrollador Web</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Empresa 1</h6>
-                    <p><strong>Fechas:</strong> Ene 2020 - Dic 2021</p>
-                    <p><strong>Ubicación:</strong> Sevilla, España</p>
-                    <p>Desarrollo y mantenimiento de aplicaciones web. Logros: Incremento del 20% en la eficiencia del sistema.</p>
+        <div class="container mt-5">
+            <h2 class="section-title">Experiencia laboral</h2>
+            <ul class="nav nav-tabs" id="experienceTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="exp1-tab" data-bs-toggle="tab" data-bs-target="#exp1" type="button" role="tab" aria-controls="exp1" aria-selected="true">Desarrollador Web</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="exp2-tab" data-bs-toggle="tab" data-bs-target="#exp2" type="button" role="tab" aria-controls="exp2" aria-selected="false">Ingeniero de Software</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="exp3-tab" data-bs-toggle="tab" data-bs-target="#exp3" type="button" role="tab" aria-controls="exp3" aria-selected="false">Analista de Sistemas</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="experienceTabContent">
+                <div class="tab-pane fade show active" id="exp1" role="tabpanel" aria-labelledby="exp1-tab">
+                    <div class="p-3">
+                        <img src="media/desarrollador-web.jpg" alt="Logo Empresa 1" class="rounded-circle mb-3" height="100px" width="100px">
+                        <h5 class="card-title">Desarrollador Web</h5>
+                        <h6 class="card-subtitle mb-2 text -muted">Empresa 1</h6>
+                        <p><strong>Fechas:</strong> Ene 2020 - Dic 2021</p>
+                        <p><strong>Ubicación:</strong> Sevilla, España</p>
+                        <p>Desarrollo y mantenimiento de aplicaciones web. Logros: Incremento del 20% en la eficiencia del sistema.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="tab-pane fade" id="exp2" role="tabpanel" aria-labelledby="exp2-tab">
-                <div class="p-3">
-                    <img src="media/ingeniero-software.jpg" alt="Logo Empresa 2" class="rounded-circle mb-3" height="100px" width="100px">
-                    <h5 class="card-title">Ingeniero de Software</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Empresa 2</h6>
-                    <p><strong>Fechas:</strong> Ene 2018 - Dic 2019</p>
-                    <p><strong>Ubicación:</strong> Roma, Italia</p>
-                    <p>Diseño de soluciones de software y gestión de proyectos. Logros: Aumento del 30% en la satisfacción del cliente.</p>
+                <div class="tab-pane fade" id="exp2" role="tabpanel" aria-labelledby="exp2-tab">
+                    <div class="p-3">
+                        <img src="media/ingeniero-software.jpg" alt="Logo Empresa 2" class="rounded-circle mb-3" height="100px" width="100px">
+                        <h5 class="card-title">Ingeniero de Software</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Empresa 2</h6>
+                        <p><strong>Fechas:</strong> Ene 2018 - Dic 2019</p>
+                        <p><strong>Ubicación:</strong> Roma, Italia</p>
+                        <p>Diseño de soluciones de software y gestión de proyectos. Logros: Aumento del 30% en la satisfacción del cliente.</p>
+                    </div>
                 </div>
-            </div>
-            <div class="tab-pane fade" id="exp3" role="tabpanel" aria-labelledby="exp3-tab">
-                <div class="p-3">
-                    <img src="media/ingeniero-sistemas.jpg" alt="Logo Empresa 3" class="rounded-circle mb-3" height="100px" width="100px">
-                    <h5 class="card-title">Analista de Sistemas</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Empresa 3</h6>
-                    <p><strong>Fechas:</strong> Ene 2016 - Dic 2017</p>
-                    <p><strong>Ubicación:</strong> Mallorca, España</p>
-                    <p>Análisis de requerimientos y pruebas de software. Logros: 95% de efectividad en pruebas de calidad de software.</p>
+                <div class="tab-pane fade" id="exp3" role="tabpanel" aria-labelledby="exp3-tab">
+                    <div class="p-3">
+                        <img src="media/ingeniero-sistemas.jpg" alt="Logo Empresa 3" class="rounded-circle mb-3" height="100px" width="100px">
+                        <h5 class="card-title">Analista de Sistemas</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Empresa 3</h6>
+                        <p><strong>Fechas:</strong> Ene 2016 - Dic 2017</p>
+                        <p><strong>Ubicación:</strong> Mallorca, España</p>
+                        <p>Análisis de requerimientos y pruebas de software. Logros: 95% de efectividad en pruebas de calidad de software.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <script src="https://kit.fontawesome.com/17e330ead4.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Actualiza los círculos de progreso según el porcentaje especificado
-        document.querySelectorAll('.circle').forEach(circle => {
-            const radius = circle.r.baseVal.value;
-            const circumference = 2 * Math.PI * radius;
-            circle.style.strokeDasharray = `${circumference} ${circumference}`;
-            const percent = circle.getAttribute('data-percent');
-            const offset = circumference - (percent / 100) * circumference;
-            circle.style.strokeDashoffset = offset;
-        });
-    </script>
-</body>
+        
+        <!-- Modal Superpuesto -->
+        <div id="overlay" class="overlay">
+            <div class="overlay-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img id="projectImage" src="" class="img-fluid mb-3 rounded" alt="Imagen del Proyecto">
+                <p id="projectDescription">Descripción detallada del proyecto.</p>
+                <div id="projectTools" class="mb-3">
+                    <!-- Iconos de herramientas usadas -->
+                </div>
+                <div id="projectLinks">
+                    <!-- Iconos de donde ver el código del proyecto -->
+                </div>
+            </div>
+        </div>
 
+        <script src="https://kit.fontawesome.com/17e330ead4.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            // Actualiza los círculos de progreso según el porcentaje especificado
+            document.querySelectorAll('.circle').forEach(circle => {
+                const radius = circle.r.baseVal.value;
+                const circumference = 2 * Math.PI * radius;
+                circle.style.strokeDasharray = `${circumference} ${circumference}`;
+                const percent = circle.getAttribute('data-percent');
+                const offset = circumference - (percent / 100) * circumference;
+                circle.style.strokeDashoffset = offset;
+            });
+
+            // Funciones para abrir y cerrar el modal
+            function openModal(title, image, description, tools, links) {
+                document.getElementById('overlay').classList.add('show');
+                document.getElementById('projectImage').src = image;
+                document.getElementById('projectDescription').innerText = description;
+
+                const toolsContainer = document.getElementById('projectTools');
+                toolsContainer.innerHTML = '';
+                tools.forEach(tool => {
+                    const toolElement = document.createElement('div');
+                    toolElement.innerHTML = `<i class="${tool.icon}"></i> ${tool.text}`;
+                    toolsContainer.appendChild(toolElement);
+                });
+
+                const linksContainer = document.getElementById('projectLinks');
+                linksContainer.innerHTML = '';
+                links.forEach(link => {
+                    const linkElement = document.createElement('a');
+                    linkElement.href = link.link;
+                    linkElement.target = '_blank';
+                    linkElement.innerHTML = `<i class="${link.icon}"></i>`;
+                    linksContainer.appendChild(linkElement);
+                });
+            }
+
+            function closeModal() {
+                document.getElementById('overlay').classList.remove('show');
+            }
+        </script>
+    </body>
 </html>
